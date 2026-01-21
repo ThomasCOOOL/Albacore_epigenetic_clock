@@ -11,10 +11,10 @@ library(tidyverse)
 library(ggplot2)
 
 #### Path #### 
-root_dir   <- "C:/Users/Download/forSteve3/forSteve"  # <— edit if needed
+root_dir   <- "D:/Analyse_Thomas/MammalMethyl/Tuna_UCEs/"
 setwd(root_dir)
-meth_file  <- file.path(root_dir, "meth_matrix.csv")          # rows=CpGs, cols=samples; 1st col 'cpg_id'
-meta_file  <- file.path(root_dir, "Jesstimation_ALB_papier.csv")  # columns: sample_id, age
+meth_file  <- file.path(root_dir, "Metadata_age_tuna.csv")
+meta_file  <- file.path(root_dir, "Jesstimation_ALB_papier.csv")
 
 meth <- fread(meth_file) |> as.data.frame()
 stopifnot("cpg_id" %in% names(meth))
@@ -35,11 +35,10 @@ OUTVAR <- "age"
 PREDVAR <- "DNAmAgebasedOnAll"
 RESVAR <- "AgeAccelbasedOnAll"
 RESinOtherVAR <- "AgeAccelinOtherbasedOnAll"
-out.csv <- "D:/UCLA_Matteo/Analyse_Thomas/MammalMethyl/Tuna_UCEs/test_2.csv"
-output.csv <- "D:/UCLA_Matteo/Analyse_Thomas/MammalMethyl/Tuna_UCEs/test_PredictedValues_2.csv"
-out.png <- "D:/UCLA_Matteo/Analyse_Thomas/MammalMethyl/Tuna_UCEs/test.tiff"
+out.csv <- "D:/Analyse_Thomas/MammalMethyl/Tuna_UCEs/Tuna_Clock_Final_EpigeneticLLin3Age_Log_transform.csv"
+output.csv <- "D:/Analyse_Thomas/MammalMethyl/Tuna_UCEs/Tuna_Clock_Final_EpigeneticLLin3Age_Log_transform_PredictedValues.csv"
+out.png <- "D:/Analyse_Thomas/MammalMethyl/Tuna_UCEs/Tuna_Clock_Final_EpigeneticLLin3Age_Log_transform.tiff"
 out.png.title <- "Tuna_Clock_basedOnAll_EpigeneticLLin3Age"
-# fun_VAR1 <- "maxAge"
 fun_VAR1 <- NULL
 fun_VAR2 <- NULL
 ALPHA <- 0.5
@@ -61,10 +60,9 @@ COLVAR <- "Tissue"
 PREDVAR <- "DNAmAgeLOO"
 RESVAR <- "AgeAccelLOO"
 out.rdata <- NULL
-output.csv <- "D:/UCLA_Matteo/Analyse_Thomas/MammalMethyl/Tuna_UCEs/test_LOO.csv"
-out.png <- "D:/UCLA_Matteo/Analyse_Thomas/MammalMethyl/Tuna_UCEs/test_LOO.png"
+output.csv <- "D:/Analyse_Thomas/MammalMethyl/Tuna_UCEs/Tuna_LOO_Final_EpigeneticLLin3Age_Log_transform.csv"
+out.png <- "D:/Analyse_Thomas/MammalMethyl/Tuna_UCEs/Tuna_LOO_Final_EpigeneticLLin3Age_Log_transform.png"
 out.png.title <- "Tuna_LOO_Final_EpigeneticLLin3Age"
-# fun_VAR1 <- "maxAge"
 fun_VAR1 <- NULL
 fun_VAR2 <- NULL
 ALPHA <- 0.5
@@ -77,6 +75,7 @@ ys.output <- saveLOOEstimation(
   # , fun_trans = fun_llin3.trans, fun_inv = fun_llin3.inv,
   # fun_VAR1 = fun_VAR1, fun_VAR2 = fun_VAR2, COLVAR = COLVAR
 )
+
 
 
 
