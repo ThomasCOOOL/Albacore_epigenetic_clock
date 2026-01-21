@@ -13,8 +13,8 @@ library(ggplot2)
 #### Path #### 
 root_dir   <- "D:/Analyse_Thomas/MammalMethyl/Tuna_UCEs/"
 setwd(root_dir)
-meth_file  <- file.path(root_dir, "Metadata_age_tuna.csv")
-meta_file  <- file.path(root_dir, "Jesstimation_ALB_papier.csv")
+meth_file  <- file.path(root_dir, "meth_matrix.csv")
+meta_file  <- file.path(root_dir, "Metadata_age_tuna.csv")
 
 meth <- fread(meth_file) |> as.data.frame()
 stopifnot("cpg_id" %in% names(meth))
@@ -75,6 +75,7 @@ ys.output <- saveLOOEstimation(
   # , fun_trans = fun_llin3.trans, fun_inv = fun_llin3.inv,
   # fun_VAR1 = fun_VAR1, fun_VAR2 = fun_VAR2, COLVAR = COLVAR
 )
+
 
 
 
